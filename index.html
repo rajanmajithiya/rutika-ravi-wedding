@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rutika Weds Ravi — Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Noto+Sans+Gujarati:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+/* ===== BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cormorant Garamond',serif;
+  background:#0f0800;
+  color:#f5ead8;
+  overflow-x:hidden;
+}
+
+:root{
+  --gold:#c9a84c;
+  --gold2:#e8c97a;
+  --gold3:#f5e8c8;
+  --saffron:#e67e22;
+  --saffron2:#f39c12;
+  --crimson:#8b0000;
+  --maroon:#6b0012;
+  --cream:#fdf8f0;
+  --dark:#0f0800;
+  --darkm:#1a1000;
+  --text:#f5ead8;
+}
+
+/* ===== NAV DOTS ===== */
+.nav-dots{
+  position:fixed;right:18px;top:50%;transform:translateY(-50%);
+  display:flex;flex-direction:column;gap:10px;z-index:200;
+}
+.nav-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:rgba(201,168,76,0.3);cursor:pointer;
+  transition:all 0.3s;border:1px solid rgba(201,168,76,0.2);
+}
+.nav-dot.active{background:var(--gold);box-shadow:0 0 10px var(--gold);transform:scale(1.5);}
+
+/* ===== SECTIONS ===== */
+section{
+  min-height:100vh;position:relative;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  overflow:hidden;padding:60px 20px;
+}
+
+/* ===== SCROLL HINT ===== */
+.scroll-hint{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:5px;
+  animation:bounce-hint 2s ease-in-out infinite;opacity:0.55;z-index:20;
+}
+.scroll-hint span{font-family:'Cinzel',serif;font-size:7px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;}
+@keyframes bounce-hint{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(8px);}}
+
+/* ===== DECORATIVE BORDERS ===== */
+.mughal-border{
+  position:absolute;inset:0;pointer-events:none;z-index:1;
+}
+.mughal-border::before,.mughal-border::after{
+  content:'';position:absolute;
+  border:1px solid rgba(201,168,76,0.2);
+}
+.mughal-border::before{inset:12px;}
+.mughal-border::after{inset:22px;border-color:rgba(201,168,76,0.1);}
+
+.corner{
+  position:absolute;width:50px;height:50px;
+  border-color:var(--gold);border-style:solid;opacity:0.4;z-index:2;pointer-events:none;
+}
+.corner-tl{top:14px;left:14px;border-width:2px 0 0 2px;}
+.corner-tr{top:14px;right:14px;border-width:2px 2px 0 0;}
+.corner-bl{bottom:14px;left:14px;border-width:0 0 2px 2px;}
+.corner-br{bottom:14px;right:14px;border-width:0 2px 2px 0;}
+
+/* ===== MANDALA ===== */
+.mandala{
+  position:absolute;width:500px;height:500px;
+  border-radius:50%;opacity:0.04;pointer-events:none;
+  background:repeating-conic-gradient(var(--gold) 0deg, transparent 1deg, transparent 14deg, var(--gold) 15deg);
+  animation:rotate-slow 60s linear infinite;
+}
+@keyframes rotate-slow{to{transform:rotate(360deg);}}
+
+/* ===== FLOATING PARTICLES ===== */
+.particle{
+  position:absolute;border-radius:50%;pointer-events:none;
+  animation:particle-rise linear infinite;
+}
+@keyframes particle-rise{
+  0%{transform:translateY(0) rotate(0deg);opacity:0;}
+  15%{opacity:1;}
+  85%{opacity:0.6;}
+  100%{transform:translateY(-100vh) rotate(360deg);opacity:0;}
+}
+
+/* ===== STAR FIELD ===== */
+.star{position:absolute;border-radius:50%;background:var(--gold2);animation:twinkle ease-in-out infinite;}
+@keyframes twinkle{0%,100%{opacity:0.1;transform:scale(1);}50%{opacity:0.9;transform:scale(1.6);}}
+
+/* ===== DIVIDER ===== */
+.divider{
+  display:flex;align-items:center;gap:10px;margin:14px 0;width:100%;max-width:320px;
+}
+.div-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.5),transparent);}
+.div-om{font-size:14px;color:var(--gold);opacity:0.7;}
+.div-diamond{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);opacity:0.6;}
+
+/* ===== GANESH ICON (SVG emoji style) ===== */
+.ganesh-icon{font-size:56px;animation:float-ganesh 4s ease-in-out infinite;display:block;text-align:center;filter:drop-shadow(0 0 20px rgba(230,126,34,0.5));}
+@keyframes float-ganesh{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+
+/* ========================================================
+   PAGE 1 — CURTAIN REVEAL
+   ======================================================== */
+#page1{background:linear-gradient(170deg,#0f0800,#1a0c00,#0f0800);}
+
+#page1::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 40%,rgba(230,126,34,0.12),transparent 70%);
+  pointer-events:none;
+}
+
+/* CURTAINS */
+.curtain-wrap{position:absolute;inset:0;display:flex;pointer-events:none;z-index:10;}
+.curtain{width:50%;height:100%;position:relative;overflow:hidden;}
+
+.curtain-left{
+  background:
+    linear-gradient(to right,
+      #3d0000 0%,#700010 20%,#8b001a 40%,
+      #a0001f 55%,#8b001a 70%,#700010 85%,#3d0000 100%);
+  transform-origin:left center;
+  animation:c-open-l 2.8s cubic-bezier(0.77,0,0.18,1) 1s both;
+}
+.curtain-right{
+  background:
+    linear-gradient(to left,
+      #3d0000 0%,#700010 20%,#8b001a 40%,
+      #a0001f 55%,#8b001a 70%,#700010 85%,#3d0000 100%);
+  transform-origin:right center;
+  animation:c-open-r 2.8s cubic-bezier(0.77,0,0.18,1) 1s both;
+}
+@keyframes c-open-l{0%{transform:scaleX(1);}100%{transform:scaleX(0);}}
+@keyframes c-open-r{0%{transform:scaleX(1);}100%{transform:scaleX(0);}}
+
+/* Fabric folds */
+.curtain-left::before,.curtain-left::after,
+.curtain-right::before,.curtain-right::after{
+  content:'';position:absolute;top:0;bottom:0;width:18%;
+  background:linear-gradient(to right,rgba(0,0,0,0.35),transparent,rgba(0,0,0,0.2));
+}
+.curtain-left::before{left:10%;}
+.curtain-left::after{left:45%;}
+.curtain-right::before{right:10%;transform:scaleX(-1);}
+.curtain-right::after{right:45%;transform:scaleX(-1);}
+
+/* Gold tassels along curtain edge */
+.tassel-strip{
+  position:absolute;top:0;bottom:0;width:16px;
+  background:repeating-linear-gradient(to bottom,var(--gold) 0px,var(--gold) 3px,transparent 3px,transparent 14px);
+  opacity:0.4;
+}
+.curtain-left .tassel-strip{right:0;}
+.curtain-right .tassel-strip{left:0;}
+
+/* Rod */
+.curtain-rod{
+  position:absolute;top:0;left:0;right:0;height:20px;
+  background:linear-gradient(to bottom,#e8c97a,#8a5020,#c9a84c,#8a5020,#e8c97a);
+  z-index:15;box-shadow:0 6px 24px rgba(0,0,0,0.9);
+}
+.curtain-rod::before,.curtain-rod::after{
+  content:'🌸';position:absolute;top:50%;transform:translateY(-50%);
+  font-size:20px;line-height:1;
+}
+.curtain-rod::before{left:4px;}
+.curtain-rod::after{right:4px;}
+
+/* Hero content */
+.hero-content{
+  text-align:center;z-index:5;padding:20px;
+  animation:hero-rise 1s ease 3.4s both;
+  position:relative;
+}
+@keyframes hero-rise{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+
+.hero-shlok{
+  font-family:'Noto Sans Gujarati',serif;
+  font-size:13px;color:var(--gold);opacity:0.8;
+  line-height:1.9;margin-bottom:20px;letter-spacing:0.5px;
+}
+
+.hero-names{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(62px,13vw,108px);
+  line-height:1;
+  background:linear-gradient(135deg,#f5e8c8 0%,#e8c97a 30%,#c9a84c 55%,#f5e8c8 75%,#b8880a 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  filter:drop-shadow(0 0 30px rgba(201,168,76,0.5));
+}
+.hero-amp{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:28px;
+  color:var(--saffron);display:block;margin:2px 0;font-weight:300;
+  animation:amp-pulse 3s ease-in-out infinite;
+}
+@keyframes amp-pulse{0%,100%{opacity:0.8;}50%{opacity:1;text-shadow:0 0 20px rgba(230,126,34,0.6);}}
+
+.hero-weds{
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:6px;
+  color:var(--saffron2);text-transform:uppercase;display:block;margin-bottom:4px;opacity:0.7;
+}
+
+.hero-date-pill{
+  display:inline-flex;align-items:center;gap:14px;margin-top:22px;
+  padding:10px 28px;
+  border:1px solid rgba(201,168,76,0.35);
+  background:rgba(201,168,76,0.05);
+}
+.hero-date-pill span{font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;color:var(--gold2);}
+.pill-diamond{width:5px;height:5px;background:var(--saffron);transform:rotate(45deg);}
+
+.hero-tagline{
+  margin-top:16px;font-style:italic;font-size:14px;
+  color:var(--text);opacity:0.55;letter-spacing:0.5px;
+}
+
+/* Diya lamps */
+.diya{
+  position:absolute;font-size:22px;
+  animation:diya-flicker ease-in-out infinite;
+  filter:drop-shadow(0 0 8px rgba(255,150,0,0.7));
+}
+@keyframes diya-flicker{0%,100%{opacity:0.7;transform:scale(1);}50%{opacity:1;transform:scale(1.1);}}
+
+/* ========================================================
+   PAGE 2 — SCRATCH DATE
+   ======================================================== */
+#page2{
+  background:linear-gradient(160deg,#120800,#1a0c00,#0f0800);
+  padding:70px 20px;
+}
+#page2::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 30%,rgba(230,126,34,0.1),transparent 60%);
+  pointer-events:none;
+}
+
+.sec-eyebrow{
+  font-family:'Cinzel',serif;font-size:8px;letter-spacing:6px;
+  color:var(--gold);text-transform:uppercase;opacity:0.65;text-align:center;margin-bottom:6px;
+}
+.sec-heading{
+  font-family:'Great Vibes',cursive;font-size:clamp(44px,10vw,68px);
+  background:linear-gradient(135deg,#e8c97a,#c9a84c,#f5e8c8);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  text-align:center;margin-bottom:36px;
+}
+
+/* Scratch trio */
+.scratch-trio{
+  display:flex;gap:24px;justify-content:center;
+  align-items:center;flex-wrap:wrap;max-width:650px;width:100%;
+}
+
+.scratch-dot-card{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  opacity:0;transform:translateY(30px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.scratch-dot-card.in{opacity:1;transform:translateY(0);}
+.scratch-dot-card:nth-child(3){transition-delay:0.15s;}
+.scratch-dot-card:nth-child(5){transition-delay:0.3s;}
+
+.dot-label{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;opacity:0.65;}
+
+.dot-wrap{
+  width:116px;height:116px;border-radius:50%;position:relative;
+  cursor:crosshair;touch-action:none;user-select:none;
+  box-shadow:0 0 0 2px rgba(201,168,76,0.35),0 0 0 6px rgba(201,168,76,0.06),0 10px 40px rgba(0,0,0,0.5);
+}
+.dot-inner{
+  width:116px;height:116px;border-radius:50%;
+  background:linear-gradient(135deg,#1e0a00,#2a1200);
+  display:flex;align-items:center;justify-content:center;
+  position:absolute;inset:0;flex-direction:column;gap:2px;
+}
+.dot-value{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:28px;font-weight:300;color:var(--gold2);text-align:center;line-height:1;
+}
+.dot-sub{font-size:11px;color:var(--gold);opacity:0.65;font-style:italic;}
+.dot-canvas-wrap{position:absolute;inset:0;border-radius:50%;overflow:hidden;}
+.dot-canvas-wrap canvas{width:116px;height:116px;display:block;}
+
+.dot-hint{
+  font-size:8px;font-family:'Cinzel',serif;letter-spacing:2px;
+  color:var(--gold);opacity:0.5;text-transform:uppercase;
+  animation:pulse-hint 2s ease-in-out infinite;
+}
+.dot-hint.done{opacity:0;pointer-events:none;}
+@keyframes pulse-hint{0%,100%{opacity:0.3;}50%{opacity:0.75;}}
+
+.trio-sep{display:flex;flex-direction:column;align-items:center;gap:4px;opacity:0.25;}
+.trio-sep-line{width:1px;height:60px;background:var(--gold);}
+.trio-sep-diamond{width:5px;height:5px;background:var(--gold);transform:rotate(45deg);}
+
+.p2-sub{
+  margin-top:32px;text-align:center;font-style:italic;
+  font-size:14px;color:var(--text);opacity:0.45;letter-spacing:0.5px;
+}
+
+/* ========================================================
+   PAGE 3 — FUNCTIONS
+   ======================================================== */
+#page3{
+  background:linear-gradient(170deg,#120800,#0f0800,#0a0500);
+  padding:80px 20px;
+}
+#page3::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 20% 50%,rgba(139,0,0,0.1),transparent 50%),
+    radial-gradient(ellipse at 80% 30%,rgba(201,168,76,0.06),transparent 50%);
+  pointer-events:none;
+}
+
+/* Garland top */
+.garland{
+  position:absolute;top:0;left:0;right:0;height:60px;
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0px,transparent 18px,
+      rgba(201,168,76,0.15) 18px,rgba(201,168,76,0.15) 20px);
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,0.3),transparent);
+}
+
+.fn-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;max-width:900px;width:100%;margin-top:36px;padding:0 8px;
+}
+
+.fn-card{
+  background:linear-gradient(135deg,rgba(139,0,0,0.1),rgba(26,8,0,0.7));
+  border:1px solid rgba(201,168,76,0.15);
+  padding:26px 22px;position:relative;overflow:hidden;
+  opacity:0;transform:translateY(40px) scale(0.96);
+  transition:all 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+.fn-card.in{opacity:1;transform:translateY(0) scale(1);}
+.fn-card:hover{
+  border-color:rgba(201,168,76,0.45);
+  background:linear-gradient(135deg,rgba(139,0,0,0.22),rgba(26,8,0,0.85));
+  transform:translateY(-5px) scale(1.02)!important;
+  box-shadow:0 20px 50px rgba(0,0,0,0.4),0 0 0 1px rgba(201,168,76,0.2);
+}
+.fn-card::after{
+  content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(to right,transparent,rgba(201,168,76,0.07),transparent);
+  transition:left 0.6s ease;
+}
+.fn-card:hover::after{left:150%;}
+
+.fn-card-corner{position:absolute;top:8px;right:8px;width:18px;height:18px;border-top:1px solid rgba(201,168,76,0.3);border-right:1px solid rgba(201,168,76,0.3);}
+.fn-card-corner-bl{position:absolute;bottom:8px;left:8px;width:18px;height:18px;border-bottom:1px solid rgba(201,168,76,0.3);border-left:1px solid rgba(201,168,76,0.3);}
+
+.fn-icon{font-size:30px;display:block;margin-bottom:10px;animation:icon-float 3.5s ease-in-out infinite;}
+@keyframes icon-float{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+
+.fn-name{font-family:'Cinzel',serif;font-size:13px;letter-spacing:2px;color:var(--gold2);margin-bottom:5px;text-transform:uppercase;}
+.fn-datetime{font-style:italic;font-size:12px;color:var(--saffron);opacity:0.9;margin-bottom:8px;line-height:1.5;}
+.fn-desc{font-size:12.5px;color:var(--text);opacity:0.55;line-height:1.7;}
+.fn-badge{
+  display:inline-block;margin-top:10px;padding:3px 10px;
+  border:1px solid rgba(201,168,76,0.25);font-family:'Cinzel',serif;
+  font-size:7px;letter-spacing:2px;color:var(--gold);text-transform:uppercase;opacity:0.65;
+}
+
+/* Venue box on p3 */
+.fn-venue-box{
+  max-width:460px;width:100%;margin-top:28px;
+  border:1px solid rgba(201,168,76,0.25);
+  padding:18px 24px;text-align:center;
+  background:rgba(201,168,76,0.04);
+  position:relative;z-index:2;
+  opacity:0;transform:translateY(20px);
+  transition:all 0.7s ease 0.5s;
+}
+.fn-venue-box.in{opacity:1;transform:translateY(0);}
+.fn-venue-title{font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:var(--gold);text-transform:uppercase;opacity:0.7;margin-bottom:6px;}
+.fn-venue-name{font-style:italic;font-size:17px;color:var(--text);opacity:0.85;line-height:1.5;}
+
+/* ========================================================
+   PAGE 4 — MESSAGE + VENUE + CONTACTS
+   ======================================================== */
+#page4{
+  background:linear-gradient(170deg,#0a0500,#0f0800,#130800);
+  padding:80px 20px 60px;
+}
+#page4::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(230,126,34,0.08),transparent 65%);
+  pointer-events:none;
+}
+
+/* Floating diyas */
+.diya-float{position:absolute;font-size:16px;animation:diya-rise linear infinite;opacity:0.25;pointer-events:none;}
+@keyframes diya-rise{
+  0%{transform:translateY(100vh) rotate(0deg);opacity:0;}
+  15%{opacity:0.4;}85%{opacity:0.25;}
+  100%{transform:translateY(-20vh) rotate(20deg);opacity:0;}
+}
+
+.love-box{
+  max-width:580px;text-align:center;margin-bottom:44px;
+  position:relative;z-index:2;
+  opacity:0;transform:translateY(30px);
+  transition:all 0.9s ease;
+}
+.love-box.in{opacity:1;transform:translateY(0);}
+
+.love-flame{font-size:40px;display:block;animation:heartbeat 2.5s ease-in-out infinite;margin-bottom:12px;}
+@keyframes heartbeat{0%,100%{transform:scale(1);}12%{transform:scale(1.25);}25%{transform:scale(1);}37%{transform:scale(1.12);}50%{transform:scale(1);}}
+
+.love-guj{
+  font-family:'Noto Sans Gujarati',sans-serif;
+  font-size:13px;line-height:2;color:var(--gold);opacity:0.8;
+  margin:12px 0;font-weight:400;
+}
+
+.love-text{
+  font-style:italic;font-size:clamp(16px,3.5vw,20px);
+  line-height:1.85;color:var(--text);opacity:0.75;margin:8px 0;
+}
+
+.love-sign{
+  font-family:'Great Vibes',cursive;font-size:42px;
+  background:linear-gradient(135deg,#e8c97a,#c9a84c);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-top:14px;display:block;
+}
+
+/* Family names card */
+.family-card{
+  max-width:580px;width:100%;
+  border:1px solid rgba(201,168,76,0.2);
+  background:linear-gradient(135deg,rgba(139,0,0,0.07),rgba(26,8,0,0.7));
+  padding:32px;position:relative;z-index:2;margin-bottom:24px;
+  opacity:0;transform:translateY(30px);
+  transition:all 0.8s ease;
+}
+.family-card.in{opacity:1;transform:translateY(0);}
+.family-card::before,.family-card::after{content:'';position:absolute;width:36px;height:36px;border-color:var(--gold);border-style:solid;opacity:0.3;}
+.family-card::before{top:10px;left:10px;border-width:1px 0 0 1px;}
+.family-card::after{bottom:10px;right:10px;border-width:0 1px 1px 0;}
+
+.fam-section-title{
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;
+  color:var(--gold);text-transform:uppercase;opacity:0.6;text-align:center;margin-bottom:4px;
+}
+.fam-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:16px 0;
+}
+.fam-col-title{font-family:'Cinzel',serif;font-size:8px;letter-spacing:3px;color:var(--saffron);text-transform:uppercase;opacity:0.7;margin-bottom:8px;text-align:center;}
+.fam-name{font-style:italic;font-size:13px;color:var(--text);opacity:0.75;line-height:1.8;text-align:center;}
+.fam-sub{font-size:11px;color:var(--gold);opacity:0.55;text-align:center;margin-top:2px;}
+
+/* Venue card */
+.venue-card{
+  max-width:580px;width:100%;
+  border:1px solid rgba(201,168,76,0.2);
+  background:rgba(201,168,76,0.04);
+  padding:28px 32px;position:relative;z-index:2;margin-bottom:22px;
+  opacity:0;transform:translateY(30px);
+  transition:all 0.8s ease 0.2s;
+}
+.venue-card.in{opacity:1;transform:translateY(0);}
+.venue-card::before,.venue-card::after{content:'';position:absolute;width:30px;height:30px;border-color:var(--gold);border-style:solid;opacity:0.25;}
+.venue-card::before{top:8px;left:8px;border-width:1px 0 0 1px;}
+.venue-card::after{bottom:8px;right:8px;border-width:0 1px 1px 0;}
+
+.venue-name{font-family:'Cinzel',serif;font-size:14px;letter-spacing:3px;color:var(--gold2);text-align:center;text-transform:uppercase;margin-bottom:4px;}
+.venue-addr{font-style:italic;font-size:13px;color:var(--text);opacity:0.65;text-align:center;line-height:1.7;margin-bottom:16px;}
+
+.venue-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+.venue-info-block{text-align:center;}
+.vib-label{font-family:'Cinzel',serif;font-size:7px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;opacity:0.55;margin-bottom:5px;}
+.vib-value{font-style:italic;font-size:13px;color:var(--text);opacity:0.75;line-height:1.6;}
+
+.map-btn{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:13px 20px;
+  background:transparent;border:1px solid rgba(201,168,76,0.3);
+  color:var(--gold);font-family:'Cinzel',serif;font-size:9px;
+  letter-spacing:3px;text-transform:uppercase;text-decoration:none;
+  cursor:pointer;transition:all 0.3s ease;position:relative;overflow:hidden;
+}
+.map-btn::before{
+  content:'';position:absolute;inset:0;
+  background:rgba(201,168,76,0.07);transform:scaleX(0);transform-origin:left;transition:transform 0.3s ease;
+}
+.map-btn:hover::before{transform:scaleX(1);}
+.map-btn:hover{border-color:var(--gold);color:var(--gold2);}
+
+/* Contacts */
+.contacts-grid{
+  max-width:580px;width:100%;
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  z-index:2;position:relative;
+  opacity:0;transform:translateY(20px);
+  transition:all 0.7s ease 0.4s;
+}
+.contacts-grid.in{opacity:1;transform:translateY(0);}
+
+.contact-card{
+  background:rgba(201,168,76,0.04);
+  border:1px solid rgba(201,168,76,0.12);
+  padding:18px 14px;text-align:center;
+  transition:all 0.3s ease;
+}
+.contact-card:hover{border-color:rgba(201,168,76,0.3);background:rgba(201,168,76,0.09);}
+.contact-role{font-family:'Cinzel',serif;font-size:7px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;opacity:0.55;margin-bottom:6px;}
+.contact-name{font-style:italic;font-size:14px;color:var(--text);opacity:0.8;margin-bottom:4px;line-height:1.3;}
+.contact-phone{font-family:'Cinzel',serif;font-size:11px;color:var(--gold2);opacity:0.7;letter-spacing:1px;}
+
+.footer-note{
+  margin-top:40px;text-align:center;font-style:italic;
+  font-size:11px;color:var(--text);opacity:0.25;letter-spacing:1px;
+  z-index:2;position:relative;
+}
+
+/* ===== SPARKLE ANIMATION ===== */
+@keyframes sparkle-go{from{transform:translate(0,0)scale(1);opacity:1;}to{transform:translate(var(--tx),var(--ty))scale(0);opacity:0;}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:600px){
+  .hero-names{font-size:clamp(52px,17vw,84px);}
+  .scratch-trio{gap:12px;}
+  .trio-sep{display:none;}
+  .fn-grid{grid-template-columns:1fr;}
+  .fam-row,.venue-grid,.contacts-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav dots -->
+<div class="nav-dots" id="navDots">
+  <div class="nav-dot active" onclick="goTo(0)" title="Welcome"></div>
+  <div class="nav-dot" onclick="goTo(1)" title="Save the Date"></div>
+  <div class="nav-dot" onclick="goTo(2)" title="Functions"></div>
+  <div class="nav-dot" onclick="goTo(3)" title="Venue"></div>
+</div>
+
+<!-- ============================================================
+     PAGE 1 — CURTAIN REVEAL
+     ============================================================ -->
+<section id="page1">
+  <div class="mughal-border"></div>
+  <div class="corner corner-tl"></div>
+  <div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div>
+  <div class="corner corner-br"></div>
+  <div class="mandala" style="top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+
+  <!-- Stars -->
+  <div id="starField" style="position:absolute;inset:0;pointer-events:none;z-index:0;"></div>
+
+  <!-- Diya lamps -->
+  <div class="diya" style="left:6%;top:30%;font-size:28px;animation-duration:1.8s;">🪔</div>
+  <div class="diya" style="right:6%;top:30%;font-size:28px;animation-duration:2.2s;animation-delay:0.5s;">🪔</div>
+  <div class="diya" style="left:12%;bottom:20%;font-size:20px;animation-duration:1.5s;animation-delay:0.3s;">🪔</div>
+  <div class="diya" style="right:12%;bottom:20%;font-size:20px;animation-duration:2s;animation-delay:0.8s;">🪔</div>
+
+  <!-- Curtains -->
+  <div class="curtain-rod"></div>
+  <div class="curtain-wrap">
+    <div class="curtain curtain-left"><div class="tassel-strip"></div></div>
+    <div class="curtain curtain-right"><div class="tassel-strip"></div></div>
+  </div>
+
+  <!-- Hero content -->
+  <div class="hero-content">
+    <p class="hero-shlok">
+      वक्रतुण्ड महाकाय सूर्यकोटि समप्रभः ।<br>
+      निर्विघ्नं कुरुमे देव: सर्वकार्येषु सर्वदा ॥
+    </p>
+
+    <span class="ganesh-icon">🐘</span>
+
+    <div class="divider" style="margin:14px auto;"><div class="div-line"></div><div class="div-om">॥</div><div class="div-line"></div></div>
+
+    <div class="hero-names">
+      Rutika
+      <span class="hero-amp">
+        <span class="hero-weds">weds 🔥</span>
+      </span>
+      Ravi
+    </div>
+
+    <div class="divider" style="margin:18px auto;"><div class="div-line"></div><div class="div-diamond"></div><div class="div-line"></div></div>
+
+    <div class="hero-date-pill">
+      <span>10</span>
+      <div class="pill-diamond"></div>
+      <span>March 2026</span>
+      <div class="pill-diamond"></div>
+      <span>Tuesday</span>
+    </div>
+
+    <p class="hero-tagline">Leuva Patel Samaj · Dhoraji Road, Jetpur</p>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <svg width="16" height="10" viewBox="0 0 16 10" fill="#c9a84c"><path d="M8 10L0 2l1.4-1.4L8 7.2 14.6.6 16 2z"/></svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 2 — SCRATCH THE DATE
+     ============================================================ -->
+<section id="page2">
+  <div class="mughal-border"></div>
+  <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+  <div class="mandala" style="top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.03;"></div>
+
+  <p class="sec-eyebrow">mark your calendars</p>
+  <div class="divider" style="margin:6px auto 14px;"><div class="div-line"></div><div class="div-om">🌸</div><div class="div-line"></div></div>
+  <div class="sec-heading">Save the Date</div>
+
+  <div class="scratch-trio" id="scratchTrio">
+
+    <!-- DAY -->
+    <div class="scratch-dot-card" id="dc0">
+      <p class="dot-label">Day</p>
+      <div class="dot-wrap" id="dw0">
+        <div class="dot-inner">
+          <div class="dot-value">10</div>
+          <div class="dot-sub">Tuesday</div>
+        </div>
+        <div class="dot-canvas-wrap"><canvas id="canvas0" width="116" height="116"></canvas></div>
+      </div>
+      <p class="dot-hint" id="dh0">✦ scratch ✦</p>
+    </div>
+
+    <div class="trio-sep"><div class="trio-sep-line"></div><div class="trio-sep-diamond"></div><div class="trio-sep-line"></div></div>
+
+    <!-- MONTH -->
+    <div class="scratch-dot-card" id="dc1">
+      <p class="dot-label">Month</p>
+      <div class="dot-wrap" id="dw1">
+        <div class="dot-inner">
+          <div class="dot-value">March</div>
+          <div class="dot-sub">2026</div>
+        </div>
+        <div class="dot-canvas-wrap"><canvas id="canvas1" width="116" height="116"></canvas></div>
+      </div>
+      <p class="dot-hint" id="dh1">✦ scratch ✦</p>
+    </div>
+
+    <div class="trio-sep"><div class="trio-sep-line"></div><div class="trio-sep-diamond"></div><div class="trio-sep-line"></div></div>
+
+    <!-- YEAR -->
+    <div class="scratch-dot-card" id="dc2">
+      <p class="dot-label">Year</p>
+      <div class="dot-wrap" id="dw2">
+        <div class="dot-inner">
+          <div class="dot-value">2026</div>
+          <div class="dot-sub">Samvat 2082</div>
+        </div>
+        <div class="dot-canvas-wrap"><canvas id="canvas2" width="116" height="116"></canvas></div>
+      </div>
+      <p class="dot-hint" id="dh2">✦ scratch ✦</p>
+    </div>
+  </div>
+
+  <p class="p2-sub">🪔 Scratch each coin gently to unveil the auspicious date 🪔</p>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <svg width="16" height="10" viewBox="0 0 16 10" fill="#c9a84c"><path d="M8 10L0 2l1.4-1.4L8 7.2 14.6.6 16 2z"/></svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 3 — FUNCTIONS
+     ============================================================ -->
+<section id="page3">
+  <div class="mughal-border"></div>
+  <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+  <div class="garland"></div>
+
+  <p class="sec-eyebrow" style="margin-top:30px;">wedding celebrations</p>
+  <div class="divider" style="margin:6px auto 14px;"><div class="div-line"></div><div class="div-om">🌺</div><div class="div-line"></div></div>
+  <div class="sec-heading">Our Functions</div>
+
+  <div class="fn-grid" id="fnGrid">
+
+    <div class="fn-card" style="transition-delay:0s">
+      <div class="fn-card-corner"></div><div class="fn-card-corner-bl"></div>
+      <span class="fn-icon" style="animation-delay:0s">🎵</span>
+      <div class="fn-name">Sanjina Geet</div>
+      <div class="fn-datetime">Sunday, 8 March 2026 · 8:00 PM<br>At our Home — Jetpur</div>
+      <div class="fn-desc">An evening filled with folk songs, laughter and the warmth of loved ones gathered under one roof.</div>
+      <div class="fn-badge">Evening Function</div>
+    </div>
+
+    <div class="fn-card" style="transition-delay:0.1s">
+      <div class="fn-card-corner"></div><div class="fn-card-corner-bl"></div>
+      <span class="fn-icon" style="animation-delay:0.5s">🕌</span>
+      <div class="fn-name">Mandap Muhurt</div>
+      <div class="fn-datetime">Monday, 9 March 2026 · 2:30 PM</div>
+      <div class="fn-desc">The sacred ceremony of erecting the wedding mandap — an auspicious beginning blessed by the divine.</div>
+      <div class="fn-badge">Sacred Ritual</div>
+    </div>
+
+    <div class="fn-card" style="transition-delay:0.2s">
+      <div class="fn-card-corner"></div><div class="fn-card-corner-bl"></div>
+      <span class="fn-icon" style="animation-delay:1s">🍽️</span>
+      <div class="fn-name">Bhojan Samarambh</div>
+      <div class="fn-datetime">Monday, 9 March 2026 · 7:00 PM</div>
+      <div class="fn-desc">A grand feast to welcome all guests. Please join us for a celebration of food, family and festivity.</div>
+      <div class="fn-badge">Grand Dinner</div>
+    </div>
+
+    <div class="fn-card" style="transition-delay:0.3s">
+      <div class="fn-card-corner"></div><div class="fn-card-corner-bl"></div>
+      <span class="fn-icon" style="animation-delay:1.5s">💃</span>
+      <div class="fn-name">Loti Utsav · Raas Kirtan</div>
+      <div class="fn-datetime">Monday, 9 March 2026 · 8:30 PM</div>
+      <div class="fn-desc">A night of devotional raas and kirtan, celebrating love, joy and the blessings of the divine.</div>
+      <div class="fn-badge">Devotional Evening</div>
+    </div>
+
+    <div class="fn-card" style="transition-delay:0.4s">
+      <div class="fn-card-corner"></div><div class="fn-card-corner-bl"></div>
+      <span class="fn-icon" style="animation-delay:2s">🚗</span>
+      <div class="fn-name">Jaan Aagaman</div>
+      <div class="fn-datetime">Tuesday, 10 March 2026 · 6:00 PM</div>
+      <div class="fn-desc">The groom's baraat arrives with joy and fanfare. A moment of excitement and festive welcome.</div>
+      <div class="fn-badge">Main Wedding Day</div>
+    </div>
+
+    <div class="fn-card" style="transition-delay:0.5s">
+      <div class="fn-card-corner"></div><div class="fn-card-corner-bl"></div>
+      <span class="fn-icon" style="animation-delay:2.5s">💍</span>
+      <div class="fn-name">Hast Melap</div>
+      <div class="fn-datetime">Tuesday, 10 March 2026 · 8:30 PM</div>
+      <div class="fn-desc">The sacred union — the joining of hands before the sacred fire with Agnidev as witness.</div>
+      <div class="fn-badge">✦ Sacred Wedding ✦</div>
+    </div>
+
+    <div class="fn-card" style="transition-delay:0.6s">
+      <div class="fn-card-corner"></div><div class="fn-card-corner-bl"></div>
+      <span class="fn-icon" style="animation-delay:3s">🍛</span>
+      <div class="fn-name">Bhojan Samarambh</div>
+      <div class="fn-datetime">Tuesday, 10 March 2026 · 7:30 PM</div>
+      <div class="fn-desc">Wedding reception dinner — celebrate the newlyweds with a lavish feast and heartfelt blessings.</div>
+      <div class="fn-badge">Wedding Dinner</div>
+    </div>
+
+  </div>
+
+  <div class="fn-venue-box" id="fnVenue">
+    <div class="fn-venue-title">🏛 Wedding Venue</div>
+    <div class="fn-venue-name">Leuva Patel Samaj<br>Dhoraji Road, Jetpur</div>
+  </div>
+
+  <div class="scroll-hint" style="margin-top:20px">
+    <span>Scroll</span>
+    <svg width="16" height="10" viewBox="0 0 16 10" fill="#c9a84c"><path d="M8 10L0 2l1.4-1.4L8 7.2 14.6.6 16 2z"/></svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     PAGE 4 — MESSAGE + VENUE + CONTACTS
+     ============================================================ -->
+<section id="page4">
+  <div class="mughal-border"></div>
+  <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+  <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+  <div id="diyaContainer"></div>
+  <div class="mandala" style="top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;opacity:0.03;"></div>
+
+  <!-- Love message -->
+  <div class="love-box" id="loveBox">
+    <span class="love-flame">🔥</span>
+    <div class="divider" style="margin:0 auto 14px;"><div class="div-line"></div><div class="div-om">॥ श्री खोडियार माताजी ॥</div><div class="div-line"></div></div>
+    <div class="sec-heading" style="margin-bottom:16px;">From Our Hearts</div>
+
+    <p class="love-guj">
+      સમ્યના બાગમાં વિશ્વાસના સ્થંભ પર<br>
+      અગ્નિદેવની સાક્ષીએ, આંગણે અવસર આવ્યો છે...
+    </p>
+
+    <p class="love-text">
+      In the garden of time, with the sacred fire as our witness,<br>
+      a blessed occasion has arrived at our doorstep.<br><br>
+      With the divine grace of our Kuldevi <strong style="color:var(--gold);">Shri Khodiyar Mataji</strong>,<br>
+      we joyfully invite you to celebrate the auspicious wedding of our beloved daughter
+    </p>
+
+    <div class="divider" style="margin:16px auto;"><div class="div-line"></div><div class="div-diamond"></div><div class="div-line"></div></div>
+
+    <div style="font-family:'Great Vibes',cursive;font-size:52px;background:linear-gradient(135deg,#e8c97a,#c9a84c,#f5e8c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin:8px 0;">
+      Rutika
+    </div>
+    <div style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:4px;color:var(--saffron);opacity:0.8;margin:4px 0;">WEDS</div>
+    <div style="font-family:'Great Vibes',cursive;font-size:52px;background:linear-gradient(135deg,#e8c97a,#c9a84c,#f5e8c8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.2;margin:8px 0;">
+      Ravi
+    </div>
+
+    <div class="divider" style="margin:16px auto;"><div class="div-line"></div><div class="div-diamond"></div><div class="div-line"></div></div>
+
+    <p class="love-text" style="font-size:14px;opacity:0.6;">
+      Do come, be present, and grace us with your blessings.<br>
+      Your presence is our greatest gift. 🙏
+    </p>
+    <span class="love-sign">Rank Parivar</span>
+  </div>
+
+  <!-- Family Card -->
+  <div class="family-card" id="famCard">
+    <div class="fam-section-title" style="margin-bottom:12px;">🌸 The Families 🌸</div>
+
+    <div class="fam-row">
+      <div>
+        <div class="fam-col-title">Bride's Family</div>
+        <div class="fam-name">
+          A.Sau. Dakshaben<br>
+          Shri Jitendrabhai Babubhai Rank
+        </div>
+        <div class="fam-sub">Khambaliya (now Jetpur)</div>
+      </div>
+      <div>
+        <div class="fam-col-title">Groom's Family</div>
+        <div class="fam-name">
+          A.Sau. Madhubhen<br>
+          Shri Jamanbhai Dhirubhai Kachhadia
+        </div>
+        <div class="fam-sub">Choki (now Surat)</div>
+      </div>
+    </div>
+
+    <div class="divider" style="margin:14px auto;"><div class="div-line"></div><div class="div-diamond"></div><div class="div-line"></div></div>
+
+    <div class="fam-section-title">🌺 Bhanej Paksha 🌺</div>
+    <div style="text-align:center;margin:10px 0;">
+      <div class="fam-name">Shri Het Mukeshbhai Gondliya</div>
+      <div class="fam-name">Ku. Priyanshu Mukeshbhai Gondliya</div>
+    </div>
+
+    <div class="divider" style="margin:14px auto;"><div class="div-line"></div><div class="div-diamond"></div><div class="div-line"></div></div>
+
+    <div class="fam-section-title">🎉 Shubhechak 🎉</div>
+    <div style="text-align:center;margin:10px 0;">
+      <div class="fam-name" style="font-size:12px;opacity:0.6;">Yallo Fashion – Navagadh &nbsp;|&nbsp; Ashadip Fashion – Jetpur &nbsp;|&nbsp; Radhika Enterprises – Jetpur</div>
+    </div>
+  </div>
+
+  <!-- Venue Card -->
+  <div class="venue-card" id="venueCard">
+    <div class="venue-name">🏛 Shubh Sthal</div>
+    <div class="venue-addr">
+      Shri Jitendrabhai Babubhai Rank &amp; A.Sau. Dakshaben Jitendrabhai Rank<br>
+      <strong style="color:var(--gold);font-style:normal;">BMK Residency, A-302</strong><br>
+      Kadva Patidar Samaj same, Jetpur<br>
+      <span style="color:var(--saffron);opacity:0.8;">Mo. 9727350701 · 9327930050</span>
+    </div>
+
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(201,168,76,0.3),transparent);margin:14px 0;"></div>
+
+    <div class="venue-grid">
+      <div class="venue-info-block">
+        <div class="vib-label">Wedding Venue</div>
+        <div class="vib-value">Leuva Patel Samaj<br>Dhoraji Road, Jetpur</div>
+      </div>
+      <div class="venue-info-block">
+        <div class="vib-label">Wedding Date</div>
+        <div class="vib-value">Tuesday<br>10 March 2026</div>
+      </div>
+    </div>
+
+    <a href="https://maps.google.com/?q=Leuva+Patel+Samaj+Dhoraji+Road+Jetpur+Gujarat" target="_blank" class="map-btn">
+      📍 &nbsp; Location Mate Ahi Click Karo
+    </a>
+  </div>
+
+  <!-- Contacts -->
+  <div class="contacts-grid" id="contactsGrid">
+    <div class="contact-card">
+      <div class="contact-role">Bride's Father</div>
+      <div class="contact-name">Shri Jitendrabhai Rank</div>
+      <div class="contact-phone">97273 50701</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-role">Bride's Family</div>
+      <div class="contact-name">Rank Parivar</div>
+      <div class="contact-phone">93279 30050</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-role">Mossal Paksha</div>
+      <div class="contact-name">Shri Sunilbhai Ranchhod Ranpariya</div>
+      <div class="contact-phone">(Bhola)</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-role">Invitation Designed by</div>
+      <div class="contact-name">Rajan Majithiya</div>
+      <div class="contact-phone">9099848129</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    ॥ श्री नाथजी बावा ॥ &nbsp;·&nbsp; Rank Parivar, Jetpur &nbsp;·&nbsp; 10 March 2026
+  </div>
+</section>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+/* ---- Stars ---- */
+(function(){
+  const sf=document.getElementById('starField');
+  for(let i=0;i<70;i++){
+    const s=document.createElement('div');s.className='star';
+    const sz=1+Math.random()*2;
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${1.5+Math.random()*4}s;animation-delay:${Math.random()*4}s;`;
+    sf.appendChild(s);
+  }
+})();
+
+/* ---- Floating diyas page 4 ---- */
+(function(){
+  const c=document.getElementById('diyaContainer');
+  for(let i=0;i<18;i++){
+    const d=document.createElement('div');d.className='diya-float';
+    d.textContent=Math.random()>0.5?'🪔':'🌸';
+    d.style.left=Math.random()*100+'vw';
+    d.style.animationDuration=(12+Math.random()*16)+'s';
+    d.style.animationDelay=(Math.random()*14)+'s';
+    c.appendChild(d);
+  }
+})();
+
+/* ---- Nav dots ---- */
+const sections=[document.getElementById('page1'),document.getElementById('page2'),document.getElementById('page3'),document.getElementById('page4')];
+const navDots=document.querySelectorAll('.nav-dot');
+function goTo(i){sections[i].scrollIntoView({behavior:'smooth'});}
+new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const idx=sections.indexOf(e.target);
+      navDots.forEach((d,i)=>d.classList.toggle('active',i===idx));
+    }
+  });
+},{threshold:0.4}).observe && sections.forEach(s=>{
+  new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){const idx=sections.indexOf(e.target);navDots.forEach((d,i)=>d.classList.toggle('active',i===idx));}});
+  },{threshold:0.4}).observe(s);
+});
+
+/* ---- Scroll reveal ---- */
+function revealOnScroll(selector,threshold=0.2){
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting) e.target.classList.add('in');});
+  },{threshold});
+  document.querySelectorAll(selector).forEach(el=>obs.observe(el));
+}
+revealOnScroll('.scratch-dot-card',0.3);
+revealOnScroll('.fn-card',0.1);
+revealOnScroll('#fnVenue',0.2);
+revealOnScroll('#loveBox',0.15);
+revealOnScroll('#famCard',0.15);
+revealOnScroll('#venueCard',0.15);
+revealOnScroll('#contactsGrid',0.15);
+
+/* ========================================================
+   SCRATCH DOT LOGIC
+   ======================================================== */
+[0,1,2].forEach(id=>{
+  const canvas=document.getElementById('canvas'+id);
+  const ctx=canvas.getContext('2d');
+  const wrap=document.getElementById('dw'+id);
+  const hint=document.getElementById('dh'+id);
+  let drawing=false,done=false;
+
+  function initDot(){
+    ctx.clearRect(0,0,116,116);
+    ctx.save();
+    ctx.beginPath();ctx.arc(58,58,58,0,Math.PI*2);ctx.clip();
+
+    // Gold foil gradient
+    const g=ctx.createRadialGradient(40,35,5,58,58,58);
+    g.addColorStop(0,'#f0d878');
+    g.addColorStop(0.35,'#c9a84c');
+    g.addColorStop(0.65,'#9a7030');
+    g.addColorStop(1,'#6a4818');
+    ctx.fillStyle=g;ctx.fillRect(0,0,116,116);
+
+    // Texture
+    for(let i=0;i<800;i++){
+      ctx.fillStyle=`rgba(0,0,0,${Math.random()*0.05})`;
+      ctx.fillRect(Math.random()*116,Math.random()*116,1.5,1.5);
+    }
+    // Highlight
+    const hl=ctx.createRadialGradient(38,32,2,38,32,35);
+    hl.addColorStop(0,'rgba(255,255,255,0.25)');hl.addColorStop(1,'transparent');
+    ctx.fillStyle=hl;ctx.fillRect(0,0,116,116);
+
+    ctx.textAlign='center';
+    ctx.font='18px serif';ctx.fillStyle='rgba(255,255,255,0.55)';ctx.fillText('🪔',58,46);
+    ctx.font='bold 7px Cinzel,serif';ctx.fillStyle='rgba(255,255,255,0.45)';
+    ctx.letterSpacing='2px';ctx.fillText('SCRATCH',58,62);
+    ctx.font='6px Cinzel,serif';ctx.fillStyle='rgba(255,255,255,0.3)';ctx.fillText('to reveal',58,74);
+
+    ctx.restore();
+    done=false;
+  }
+
+  function pos(e){
+    const r=canvas.getBoundingClientRect();
+    const sx=116/r.width,sy=116/r.height;
+    return e.touches?{x:(e.touches[0].clientX-r.left)*sx,y:(e.touches[0].clientY-r.top)*sy}:{x:(e.clientX-r.left)*sx,y:(e.clientY-r.top)*sy};
+  }
+
+  function scratch(e){
+    if(!drawing||done)return;
+    e.preventDefault();
+    const p=pos(e);
+    ctx.save();
+    ctx.beginPath();ctx.arc(58,58,58,0,Math.PI*2);ctx.clip();
+    ctx.globalCompositeOperation='destination-out';
+    ctx.beginPath();ctx.arc(p.x,p.y,20,0,Math.PI*2);ctx.fill();
+    ctx.restore();
+    check();
+  }
+
+  function check(){
+    const d=ctx.getImageData(0,0,116,116).data;
+    let t=0;
+    for(let i=3;i<d.length;i+=4)if(d[i]<80)t++;
+    if(t/(d.length/4)>0.5&&!done){
+      done=true;
+      ctx.clearRect(0,0,116,116);
+      canvas.style.opacity='0';canvas.style.transition='opacity 0.5s ease';
+      hint.classList.add('done');
+      sparkle(wrap);
+    }
+  }
+
+  canvas.addEventListener('mousedown',e=>{drawing=true;scratch(e);});
+  canvas.addEventListener('mousemove',scratch);
+  canvas.addEventListener('mouseup',()=>drawing=false);
+  canvas.addEventListener('mouseleave',()=>drawing=false);
+  canvas.addEventListener('touchstart',e=>{drawing=true;scratch(e);},{passive:false});
+  canvas.addEventListener('touchmove',scratch,{passive:false});
+  canvas.addEventListener('touchend',()=>drawing=false);
+  initDot();
+});
+
+function sparkle(wrap){
+  const r=wrap.getBoundingClientRect();
+  const cx=r.left+r.width/2,cy=r.top+r.height/2;
+  for(let i=0;i<30;i++){
+    const s=document.createElement('div');
+    const angle=Math.PI*2*i/30,dist=70+Math.random()*100;
+    s.style.cssText=`position:fixed;left:${cx}px;top:${cy}px;width:${3+Math.random()*5}px;height:${3+Math.random()*5}px;border-radius:50%;background:${Math.random()>0.5?'#c9a84c':'#e67e22'};pointer-events:none;z-index:9999;animation:sparkle-go 0.8s ease-out forwards;--tx:${Math.cos(angle)*dist}px;--ty:${Math.sin(angle)*dist}px;animation-delay:${Math.random()*0.3}s;`;
+    document.body.appendChild(s);setTimeout(()=>s.remove(),1200);
+  }
+}
+</script>
+<style>
+@keyframes sparkle-go{from{transform:translate(0,0)scale(1);opacity:1;}to{transform:translate(var(--tx),var(--ty))scale(0);opacity:0;}}
+</style>
+</body>
+</html>
