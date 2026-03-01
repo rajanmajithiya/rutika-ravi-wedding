@@ -551,6 +551,59 @@ section{
 </head>
 <body>
 
+<!-- Background Music Player -->
+<div id="music-btn" onclick="toggleMusic()" style="
+  position:fixed; bottom:24px; right:24px; z-index:999;
+  width:52px; height:52px; border-radius:50%;
+  background:linear-gradient(135deg,#c9a84c,#8a5020);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; box-shadow:0 4px 20px rgba(201,168,76,0.5);
+  border:2px solid rgba(201,168,76,0.4);
+  animation:music-pulse 2s ease-in-out infinite;
+  font-size:22px;" title="Play/Pause Music">
+  🎵
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<style>
+@keyframes music-pulse {
+  0%,100%{box-shadow:0 4px 20px rgba(201,168,76,0.4);}
+  50%{box-shadow:0 4px 35px rgba(201,168,76,0.8), 0 0 0 8px rgba(201,168,76,0.1);}
+}
+</style>
+
+<script>
+  let playing = false;
+  const audio = document.getElementById('bgMusic');
+  audio.volume = 0.45;
+
+  // Auto-play on first user interaction
+  document.addEventListener('click', function startAudio() {
+    if (!playing) {
+      audio.play();
+      playing = true;
+      document.getElementById('music-btn').textContent = '🔊';
+    }
+    document.removeEventListener('click', startAudio);
+  }, { once: true });
+
+  function toggleMusic() {
+    if (playing) {
+      audio.pause();
+      playing = false;
+      document.getElementById('music-btn').textContent = '🎵';
+    } else {
+      audio.play();
+      playing = true;
+      document.getElementById('music-btn').textContent = '🔊';
+    }
+  }
+</script>
+
+  
 <!-- Nav dots -->
 <div class="nav-dots" id="navDots">
   <div class="nav-dot active" onclick="goTo(0)" title="Welcome"></div>
